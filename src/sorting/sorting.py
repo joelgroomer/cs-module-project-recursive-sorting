@@ -21,7 +21,6 @@ def merge(arrA, arrB):
             else:
                 merged_arr.append(arrB[b])
                 b += 1
-
     return merged_arr
 
 # TO-DO: implement the Merge Sort function below recursively
@@ -29,13 +28,13 @@ def merge(arrA, arrB):
 
 def merge_sort(arr):
     # Your code here
-    if len(arr) == 0:
-        return []
+    if len(arr) <= 1:
+        return arr
 
     # base case
-    if len(arr) == 1:
+    else:
         half = len(arr) // 2
-        arr = merge(merge_sort(arr[0, half]), merge_sort(arr[half, ]))
+        arr = merge(merge_sort(arr[0:half]), merge_sort(arr[half:]))
 
     return arr
 
